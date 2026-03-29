@@ -1,0 +1,254 @@
+.frame {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 25px;
+    border-bottom: 4px solid #EC3177;
+    border-left: 1px solid #DDDEE3;
+    border-top: 1px solid #DDDEE3;
+    border-right: 1px solid #DDDEE3;
+    width: 792px;
+    direction: ltr;
+}
+
+.shadow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.headers {
+    display: flex;
+    padding-left: 50px;
+    padding-top: 41px;
+    padding-bottom: 20px;
+}
+
+.header-text {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    color: #EC3177;
+    text-align: left;
+}
+
+.header-image {
+    max-height: 40px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 50px;
+    display: none;
+}
+
+.violations-meta-frame {
+    background-color: #fff;
+    border-top: 1px solid #c0c0c2;
+    box-shadow: 0 10px 10px #c0c0c240;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 50px;
+    justify-content: space-between;
+}
+
+.violations-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.violations-meta-title {
+    font-size: 20px;
+    font-weight: 550;
+    font-family: 'DM Sans', sans-serif;
+    color: black;
+    left: 83px;
+    letter-spacing: 0.2px;
+}
+
+.arrows-container {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.arrow-button {
+    background-color: #ffffffff;
+    border: 0px;
+    padding: 0px 0px;
+}
+
+.arrow {
+    fill: #5D5D5D;
+}
+
+.arrow:hover {
+    fill: #000000;
+}
+
+.arrow-disabled {
+    fill: #DDDEE3;
+}
+
+.arrow-circles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 3px;
+}
+
+.arrow-circle {
+    height: 7px;
+    width: 7px;
+    background-color: #DDDEE3;
+    border-radius: 50%;
+}
+
+.violation-content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    gap: 20px;
+}
+
+.violation-message-text {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    color: #1C1D22;
+    height: 26px;
+}
+
+.violation-info-frame {
+    border-radius: 20px;
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+}
+
+.violation-info-content-frame {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    align-items: center;
+}
+
+.violation-info-content-title {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    color: #5D5D5D;
+    min-width: 150px;
+}
+
+.violation-info-content {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'DM Mono', monospace;
+    color: black;
+    overflow-y: auto;
+    max-height: 40px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.customize-text {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    color: #5D5D5D;
+    display: none;
+    align-items: center;
+}
+
+.guidelines-box {
+    padding-top: 15px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: #5D5D5D;
+    font-style: italic;
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: #415FFF;
+}
+
+.horizontal-line {
+    height: 1px;
+    background-color: #DDDEE3;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.powered-by {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.powered-by-text {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: #5D5D5D;
+}
+
+.powered-by-logo {
+    width: 90px;
+}
+
+#closeButton {
+    background-color: white;
+    color: #C0C0C2;
+    border: 1px solid #C0C0C2;
+    padding: 10px 40px 8px 40px;
+    border-radius: 60px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    width: 200px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+#closeButton:hover {
+    background-color: #C0C0C2;
+    color: #ffffff;
+}
+
+.ps-modal {
+    position: fixed;
+    z-index: 2147483647; 
+}

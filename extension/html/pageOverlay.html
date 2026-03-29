@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title id="page-title"></title>
+        <link rel="stylesheet" href="/style/pageOverlay.css">
+        <script src="/bundle/pageOverlay.bundle.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="frame">
+            <div class="header-box">  
+                <div class="title-box">
+                    <svg id="title-icon-block" xmlns="http://www.w3.org/2000/svg" fill="#EC3177" height="24" viewBox="0 -960 960 960" width="24" style="display: none"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q54 0 104-17.5t92-50.5L228-676q-33 42-50.5 92T160-480q0 134 93 227t227 93Zm252-124q33-42 50.5-92T800-480q0-134-93-227t-227-93q-54 0-104 17.5T284-732l448 448Z"/></svg>
+                    <svg id="title-icon-warning" xmlns="http://www.w3.org/2000/svg" fill="#EC3177" height="24" viewBox="0 -960 960 960" width="24" style="display: none"><path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm302-40q17 0 28.5-11.5T520-280q0-17-11.5-28.5T480-320q-17 0-28.5 11.5T440-280q0 17 11.5 28.5T480-240Zm-40-120h80v-200h-80v200Zm40-100Z"/></svg>
+                    <div class="title-text" id="title-text"></div>
+                </div>
+
+                <img id="header-image" src="" height="40px" style="border-radius: 10px; margin-left: auto;">
+            </div>
+
+            <div class="separator"></div>
+
+            <div class="content-box" id="content-box">
+                <div class="message-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#5D5D5D" height="24" viewBox="0 -960 960 960" width="24" style="margin-top: -2px"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                    <div class="message-title" id="message-title"></div>
+                </div>
+
+                <div class="custom-message" id="custom-message"></div>
+                <div class="guidelines" id="guidelines"><a id="guidelines-link" href="" target="_blank"></a></div>
+                <div class="bypass-message" id="bypass-message">If you are sure this domain is safe, you can click “Access” and enter it</div>
+            </div>
+
+            <div class="submit-request-content" id="submit-request-content">
+                <button class="submit-request-back-button" id="submit-request-back-button">
+                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" fill="#C0C0C2" height="24" viewBox="0 -960 960 960" width="24"><path d="M360-240 120-480l240-240 56 56-144 144h568v80H272l144 144-56 56Z"/></svg>
+                    <div class="submit-request-back-button-text">Back</div>
+                </button>
+
+                <div class="submit-request-text">What is the reason you want to bypass the blockage?</div>
+                <div class="submit-request-input-box" id="submit-request-input-box">
+                    <input type="text" class="submit-request-input" id="submit-request-input" placeholder="Write your reason here...">
+                    <button class="submit-request-button" id="submit-request-button">Submit</button>
+                </div>
+            </div>
+
+            <div class="separator"></div>
+
+            <div class="footer">
+                <div class="powered-by">
+                    <div class="powered-by-text">Powered by:</div>
+                    <a href="https://prompt.security" target="_blank"><img class="powered-by-logo" src='/images/prompt_logo.png'></a>
+                </div>
+
+                <button class="access-button" id="access-button">Access</button>
+            </div>
+
+        </div>
+
+    </body>
+</html>

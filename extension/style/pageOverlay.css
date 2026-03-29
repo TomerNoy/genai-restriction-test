@@ -1,0 +1,246 @@
+.frame {
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+    background-color: #ffffff;
+    color: #1C1D22;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    direction: ltr;
+}
+
+.header-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.title-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+
+.title-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 39px;
+    color: #EC3177;
+}
+
+.separator {
+    height: 1px;
+    background-color: #DDDEE3;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.message-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.message-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+}
+
+.custom-message {
+    margin-top: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 36px;
+    padding-left: 5px;
+    display: none;
+}
+
+.bypass-message {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5D5D5D;
+    padding-top: 15px;
+    padding-left: 5px;
+    display: none;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.powered-by {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.powered-by-text {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: #5D5D5D;
+}
+
+.powered-by-logo {
+    width: 90px;
+}
+
+.access-button {
+    width: 183px;
+    padding: 10px;
+    border-radius: 40px;
+    border: 1px #415FFF solid;
+    margin-left: auto;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #ffffff;
+    color: #415FFF;
+    display: none;
+}
+
+.access-button:hover {
+    background-color: #415FFF;
+    color: #ffffff;
+}
+
+.submit-request-content {
+    display: none;
+    padding-top: 30px;
+}
+
+.submit-request-back-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    padding: 0px;
+    border: none;
+}
+
+.submit-request-back-button:hover .arrow {
+    fill: #000000;
+}
+
+.submit-request-back-button:hover .submit-request-back-button-text {
+    color: #000000;
+    font-weight: 700;
+}
+
+.submit-request-back-button-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1C1D22;
+}
+
+.submit-request-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    color: #1C1D22;
+    margin-top: 20px;
+}
+
+.submit-request-input-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 7px;
+    padding-left: 20px;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    border: 1px solid #C0C0C2;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.submit-request-input {
+    width: 450px;
+    height: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    border: none;
+}
+
+.submit-request-input:focus {
+    border: none;
+    outline: none;
+}
+
+.submit-request-button {
+    width: 150px;
+    height: 46px;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 40px;
+    border: 1px #415FFF solid;
+    margin-left: auto;
+    margin-right: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #ffffff;
+    color: #415FFF;
+}
+
+.submit-request-button:hover {
+    background-color: #415FFF;
+    color: #ffffff;
+}
+
+.guidelines {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    color: #5D5D5D;
+    font-style: italic;
+    padding-left: 5px;
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: #415FFF;
+}

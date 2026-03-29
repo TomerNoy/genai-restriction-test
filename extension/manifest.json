@@ -1,0 +1,43 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "images/prompt_icon150.png",
+         "16": "images/prompt_icon16.png",
+         "48": "images/prompt_icon32.png"
+      },
+      "default_popup": "html/popup.html"
+   },
+   "background": {
+      "service_worker": "bundle/background.bundle.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "bundle/content.bundle.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Prevents sensitive information disclosure to GenAI tools",
+   "externally_connectable": {
+      "matches": [ "http://*/*", "https://*/*" ]
+   },
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "images/prompt_icon150.png",
+      "16": "images/prompt_icon16.png",
+      "48": "images/prompt_icon32.png"
+   },
+   "incognito": "split",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn0RrZ/gSx1XTS3gbUSrSZ9CbpyPnDSfI0sIMccAcm5S74YVbelfY0r8GEhNRhkC8Pflh1QAIwuu54HMilk66OD4uqO5eUQKrFVq4L8P9eMN5+ts73uEQwa55aLuQrVobfBj/z6OYgys6Vb/zfx+OI8U8ZSoKaKyeQbs2CpTtDUiQckMr2rBXNy1tU782/1rklVU9mTuJXgZlYdU6Zh6d5sjstXhKY8N4dJHsjwIQKApllnFOau1XnhDvHk92moYBOw0zNTe1yI/OftYikQz3HJk1ASGge2olpDdJ6keB1KI5OPTUHn7xzaTI5vawkKHZGZvUEbSB/mRkdXrgyXkQvwIDAQAB",
+   "manifest_version": 3,
+   "name": "Prompt Security Browser Extension",
+   "permissions": [ "tabs", "storage", "identity", "identity.email", "alarms", "declarativeNetRequest", "downloads" ],
+   "storage": {
+      "managed_schema": "schema.json"
+   },
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "7.0.47",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "bundle/script.bundle.js", "bundle/authRedirect.bundle.js", "images/prompt_logo.png", "style/educationModal.css", "html/educationModal.html", "style/blockModal.css", "html/blockModal.html", "style/authRedirect.css", "html/authRedirect.html" ]
+   } ]
+}

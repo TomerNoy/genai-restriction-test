@@ -1,0 +1,139 @@
+.frame {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 25px;
+    border-bottom: 4px solid #EC3177;
+    border-left: 1px solid #DDDEE3;
+    border-top: 1px solid #DDDEE3;
+    border-right: 1px solid #DDDEE3;
+    width: 792px;
+    direction: ltr;
+}
+
+.shadow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.title-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 5px;
+}
+
+.title-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #EC3177;
+}
+
+.horizontal-line {
+    height: 1px;
+    background-color: #DDDEE3;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.message-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.message-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+}
+
+.auth-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.countdown-message {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #5D5D5D;
+}
+
+#countdown {
+    font-weight: 700;
+    color: #EC3177;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #EC3177;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.powered-by {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.powered-by-text {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: #5D5D5D;
+}
+
+.powered-by-logo {
+    width: 90px;
+}
+
+.ps-modal {
+    position: fixed;
+    z-index: 2147483647;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,7 @@
+node_modules/
+.env
+internal.md
+dist/
+test-results/
+playwright-report/
+.DS_Store

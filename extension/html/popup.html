@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/popup.css">
+    <script src="/bundle/popup.bundle.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <img src="/images/prompt_logo.png" alt="logo" class="logo">
+        <div>
+            <div class="apiInput">
+                <div class="switch switch-input" id="apiDomainDiv">
+                    <label class="switch-label">API Domain</label>
+                    <label class="switch-slider">
+                        <input type="text" id="apiDomain" class="text-input">
+                    </label>
+                </div>
+
+                <div class="switch switch-input" id="apiKeyDiv">
+                    <label class="switch-label">API Key</label>
+                    <label class="switch-slider">
+                        <input type="password" id="apiKey" class="text-input">
+                    </label>
+                </div>
+
+                <button id="saveButton">Save</button>
+            </div>
+
+            <div>
+                <button id="disableButton">Bypass protection for this site</button>
+            </div>
+            <div>
+                <center>
+                    <span id="message">
+                        Reload page to apply changes
+                    </span>
+                </center>
+            </div>
+
+            <div id="logsContainer">
+                <div id="logsButtons">
+                    <button id="downloadLogsButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="20px" viewBox="0 0 24 24" width="20px" fill="#C0C0C2"><g><rect fill="none" height="24" width="24"/></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"/></g></svg>                        Download Logs
+                    </button>
+                    <button id="clearLogsButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#C0C0C2"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
+                        Clear Logs
+                    </button>
+                </div>
+                <span id="clearLogsMessage">Logs were cleared</span>
+            </div>
+
+            <div>
+                <center>
+                    <div id="user">
+                        <span id="email"></span>
+                    </div>
+                </center>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

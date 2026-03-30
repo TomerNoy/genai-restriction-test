@@ -7,7 +7,4 @@ export default defineConfig({
   testDir: './tests',
   timeout: 30000,
   reporter: [['list'], ['html', { open: 'on-failure' }]],
-  use: {
-    screenshot: 'only-on-failure',
-  },
 });

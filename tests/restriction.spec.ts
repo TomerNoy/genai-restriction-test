@@ -38,6 +38,7 @@ async function configureExtension(context: BrowserContext): Promise<void> {
 
 test.describe('GenAI Extension Policy', () => {
   let context: BrowserContext;
+  let currentPage: import('@playwright/test').Page | null = null;
 
   test.beforeAll(async () => {
     if (!API_DOMAIN || !API_KEY) {
@@ -47,12 +48,22 @@ test.describe('GenAI Extension Policy', () => {
     await configureExtension(context);
   });
 
+  test.afterEach(async ({}, testInfo) => {
+    if (testInfo.status !== testInfo.expectedStatus && currentPage && !currentPage.isClosed()) {
+      await currentPage.screenshot({
+        path: `test-results/${testInfo.title.replace(/\s+/g, '-')}-failure.png`,
+      });
+    }
+    currentPage = null;
+  });
+
   test.afterAll(async () => {
     await context.close();
   });
 
   test('allows access to chatgpt.com', async () => {
     const page = await context.newPage();
+    currentPage = page;
 
     await page.goto('https://chatgpt.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
 
@@ -68,6 +79,7 @@ test.describe('GenAI Extension Policy', () => {
 
   test('blocks access to gemini.google.com', async () => {
     const page = await context.newPage();
+    currentPage = page;
 
     await page.goto('https://gemini.google.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
 

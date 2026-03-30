@@ -26,7 +26,7 @@ jobs:
           API_DOMAIN: ${{ secrets.API_DOMAIN }}
           API_KEY: ${{ secrets.API_KEY }}
           HEADLESS: 'false'
-          CREDENTIALS_MODE: 'gui'
+          CREDENTIALS_MODE: gui
         run: xvfb-run -a npm test
 
       - name: Upload test results

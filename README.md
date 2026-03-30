@@ -30,15 +30,20 @@ cp .env.example .env
 ## Run Tests
 
 ```bash
-# Headless (default)
+# Default — headed browser, GUI credentials via extension popup
 npm test
 
-# Headed (visible browser)
-HEADLESS=false npm test
+# Headless
+HEADLESS=true npm test
+
+# Programmatic credentials (skip popup UI)
+CREDENTIALS_MODE=programmatic npm test
 ```
 
 ## CI
 
-Tests run automatically on every push via GitHub Actions. Credentials are stored as repository secrets (`API_DOMAIN`, `API_KEY`).
+Tests run automatically on every push via GitHub Actions using Xvfb (virtual display) with headed Chrome — no `--headless=new` quirks.
+
+Credentials are stored as repository secrets (`API_DOMAIN`, `API_KEY`).
 
 To add secrets: **Settings → Secrets and variables → Actions → New repository secret**

@@ -59,6 +59,8 @@ async function configureExtensionViaGUI(context: BrowserContext): Promise<void> 
   await popup.fill('#apiKey', API_KEY);
   await popup.click('#saveButton');
   await popup.close();
+
+  await waitForExtensionReady(context);
 }
 
 async function waitForExtensionReady(context: BrowserContext): Promise<void> {

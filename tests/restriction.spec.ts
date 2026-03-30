@@ -5,6 +5,7 @@ const EXTENSION_PATH = path.resolve(__dirname, '../extension');
 const API_DOMAIN = process.env.API_DOMAIN ?? '';
 const API_KEY = process.env.API_KEY ?? '';
 const HEADLESS = process.env.HEADLESS !== 'false';
+const CREDENTIALS_MODE = process.env.CREDENTIALS_MODE ?? 'programmatic';
 
 async function createContextWithExtension(): Promise<BrowserContext> {
   const context = await chromium.launchPersistentContext('', {
@@ -19,13 +20,19 @@ async function createContextWithExtension(): Promise<BrowserContext> {
 }
 
 async function configureExtension(context: BrowserContext): Promise<void> {
-  // Wait for the extension service worker to be ready
+  if (CREDENTIALS_MODE === 'gui') {
+    await configureExtensionViaGUI(context);
+  } else {
+    await configureExtensionProgrammatically(context);
+  }
+}
+
+async function configureExtensionProgrammatically(context: BrowserContext): Promise<void> {
   let [worker] = context.serviceWorkers();
   if (!worker) {
     worker = await context.waitForEvent('serviceworker', { timeout: 10000 });
   }
 
-  // Inject credentials into extension storage
   await worker.evaluate(
     ([domain, key]) => {
       return new Promise<void>((resolve) => {
@@ -34,6 +41,28 @@ async function configureExtension(context: BrowserContext): Promise<void> {
     },
     [API_DOMAIN, API_KEY]
   );
+
+  await waitForExtensionReady(context);
+}
+
+async function configureExtensionViaGUI(context: BrowserContext): Promise<void> {
+  let [worker] = context.serviceWorkers();
+  if (!worker) {
+    worker = await context.waitForEvent('serviceworker', { timeout: 10000 });
+  }
+
+  const extensionId = worker.url().split('/')[2];
+  const popup = await context.newPage();
+  await popup.goto(`chrome-extension://${extensionId}/html/popup.html`);
+
+  await popup.fill('#apiDomain', API_DOMAIN);
+  await popup.fill('#apiKey', API_KEY);
+  await popup.click('#saveButton');
+  await popup.close();
+}
+
+async function waitForExtensionReady(context: BrowserContext): Promise<void> {
+  const [worker] = context.serviceWorkers();
 
   // Wait until the extension has loaded its blocking policies from the API
   await expect(async () => {

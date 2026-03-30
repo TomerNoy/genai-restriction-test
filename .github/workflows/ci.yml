@@ -25,7 +25,9 @@ jobs:
         env:
           API_DOMAIN: ${{ secrets.API_DOMAIN }}
           API_KEY: ${{ secrets.API_KEY }}
-        run: npm test
+          HEADLESS: 'false'
+          CREDENTIALS_MODE: 'gui'
+        run: xvfb-run -a npm test
 
       - name: Upload test results
         if: always()

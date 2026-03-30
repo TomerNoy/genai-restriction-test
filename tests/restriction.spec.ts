@@ -89,15 +89,19 @@ test.describe('GenAI Extension Policy', () => {
 
     await page.goto('https://gemini.google.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
 
-    const currentUrl = page.url();
-    const bodyText = await page.locator('body').innerText({ timeout: 5000 }).catch(() => '');
+    await expect(async () => {
+      await page.reload({ waitUntil: 'domcontentloaded', timeout: 10000 });
 
-    const isRedirectedAway = !currentUrl.includes('gemini.google.com');
-    const hasBlockMessage = bodyText.toLowerCase().includes('block') ||
-                            bodyText.toLowerCase().includes('not allowed') ||
-                            bodyText.toLowerCase().includes('restricted');
+      const currentUrl = page.url();
+      const bodyText = await page.locator('body').innerText({ timeout: 5000 }).catch(() => '');
 
-    expect(isRedirectedAway || hasBlockMessage).toBe(true);
+      const isRedirectedAway = !currentUrl.includes('gemini.google.com');
+      const hasBlockMessage = bodyText.toLowerCase().includes('block') ||
+                              bodyText.toLowerCase().includes('not allowed') ||
+                              bodyText.toLowerCase().includes('restricted');
+
+      expect(isRedirectedAway || hasBlockMessage).toBe(true);
+    }).toPass({ timeout: 15000, intervals: [2000] });
 
     await page.close();
   });

@@ -60,7 +60,7 @@ test.describe('GenAI Extension Policy', () => {
   test.afterEach(async ({}, testInfo) => {
     if (testInfo.status !== testInfo.expectedStatus) {
       for (const page of context.pages().filter(p => !p.url().startsWith('chrome-extension://'))) {
-        await page.screenshot({ path: `test-results/${testInfo.title.replace(/\s+/g, '-')}-failure.png` });
+        await page.screenshot({ path: `test-results/${testInfo.title.replace(/\s+/g, '-')}-failure.png`, timeout: 5000 }).catch(() => {});
       }
     }
   });

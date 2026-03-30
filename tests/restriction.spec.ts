@@ -34,6 +34,16 @@ async function configureExtension(context: BrowserContext): Promise<void> {
     },
     [API_DOMAIN, API_KEY]
   );
+
+  // Wait until the extension has loaded its blocking policies from the API
+  await expect(async () => {
+    const ready = await worker.evaluate(() =>
+      new Promise<boolean>(resolve =>
+        chrome.storage.local.get(['init'], result => resolve(!!result['init']))
+      )
+    );
+    expect(ready).toBe(true);
+  }).toPass({ timeout: 10000, intervals: [500] });
 }
 
 test.describe('GenAI Extension Policy', () => {
@@ -79,13 +89,9 @@ test.describe('GenAI Extension Policy', () => {
 
     await page.goto('https://gemini.google.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
 
-    // Allow time for the extension to react and potentially redirect
-    await page.waitForTimeout(3000);
-
     const currentUrl = page.url();
     const bodyText = await page.locator('body').innerText({ timeout: 5000 }).catch(() => '');
 
-    // Extension should have blocked the page — either redirected away or injected a block message
     const isRedirectedAway = !currentUrl.includes('gemini.google.com');
     const hasBlockMessage = bodyText.toLowerCase().includes('block') ||
                             bodyText.toLowerCase().includes('not allowed') ||

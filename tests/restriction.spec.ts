@@ -120,16 +120,19 @@ test.describe('GenAI Extension Policy', () => {
 
     await page.goto('https://gemini.google.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
 
+    // The extension renders the block UI inside an open shadow root on the page.
+    // body.innerText() does not include that text, but Playwright text locators pierce shadow DOM.
+    const blockIndicator = page
+      .getByText(
+        /Access Denied|blocked by your administrator|blocked for violating|not allowed|restricted/i
+      )
+      .first();
 
-    const currentUrl = page.url();
-    const bodyText = await page.locator('body').innerText({ timeout: 5000 }).catch(() => '');
-
-    const isRedirectedAway = !currentUrl.includes('gemini.google.com');
-    const hasBlockMessage = bodyText.toLowerCase().includes('block') ||
-      bodyText.toLowerCase().includes('not allowed') ||
-      bodyText.toLowerCase().includes('restricted');
-
-    expect(isRedirectedAway || hasBlockMessage).toBe(true);
+    await expect(async () => {
+      const isRedirectedAway = !page.url().includes('gemini.google.com');
+      const blockedVisible = await blockIndicator.isVisible();
+      expect(isRedirectedAway || blockedVisible).toBe(true);
+    }).toPass({ timeout: 25000, intervals: [300, 500, 1000] });
 
     await page.close();
   });

@@ -88,10 +88,10 @@ test.describe('GenAI Extension Policy', () => {
     await configureExtension(context);
   });
 
-  test.afterEach(async ({}, testInfo) => {
+  test.afterEach(async ({ }, testInfo) => {
     if (testInfo.status !== testInfo.expectedStatus) {
       for (const page of context.pages().filter(p => !p.url().startsWith('chrome-extension://'))) {
-        await page.screenshot({ path: `test-results/${testInfo.title.replace(/\s+/g, '-')}-failure.png`, timeout: 5000 }).catch(() => {});
+        await page.screenshot({ path: `test-results/${testInfo.title.replace(/\s+/g, '-')}-failure.png`, timeout: 5000 }).catch(() => { });
       }
     }
   });
@@ -120,19 +120,16 @@ test.describe('GenAI Extension Policy', () => {
 
     await page.goto('https://gemini.google.com', { waitUntil: 'domcontentloaded', timeout: 15000 });
 
-    await expect(async () => {
-      await page.reload({ waitUntil: 'domcontentloaded', timeout: 10000 });
 
-      const currentUrl = page.url();
-      const bodyText = await page.locator('body').innerText({ timeout: 5000 }).catch(() => '');
+    const currentUrl = page.url();
+    const bodyText = await page.locator('body').innerText({ timeout: 5000 }).catch(() => '');
 
-      const isRedirectedAway = !currentUrl.includes('gemini.google.com');
-      const hasBlockMessage = bodyText.toLowerCase().includes('block') ||
-                              bodyText.toLowerCase().includes('not allowed') ||
-                              bodyText.toLowerCase().includes('restricted');
+    const isRedirectedAway = !currentUrl.includes('gemini.google.com');
+    const hasBlockMessage = bodyText.toLowerCase().includes('block') ||
+      bodyText.toLowerCase().includes('not allowed') ||
+      bodyText.toLowerCase().includes('restricted');
 
-      expect(isRedirectedAway || hasBlockMessage).toBe(true);
-    }).toPass({ timeout: 15000, intervals: [2000] });
+    expect(isRedirectedAway || hasBlockMessage).toBe(true);
 
     await page.close();
   });
